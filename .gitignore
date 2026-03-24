@@ -1,0 +1,29 @@
+# Mac system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor directories
+.vscode/
+.cursor/
+*.swp
+*.swo
+
+# Environment variables (keep secrets out of Git)
+.env
+.env.local
+
+# npm (if ever added)
+node_modules/
+package-lock.json
+
+# Build output (if ever added)
+dist/
+build/

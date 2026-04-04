@@ -67,29 +67,9 @@
     <section class="hero" aria-label="Introduction">
 
       <div class="hero-media" aria-hidden="true">
-        <!--
-          TODO: Replace this placeholder with your video embed.
-
-          OPTION A — Vimeo background loop (no controls, autoplays):
-          <iframe
-            src="https://player.vimeo.com/video/YOUR_ID?background=1&autoplay=1&loop=1&muted=1"
-            frameborder="0"
-            allow="autoplay; fullscreen"
-            title="Get Goen showreel"
-            style="position:absolute;inset:0;width:100%;height:100%;"
-          ></iframe>
-
-          OPTION B — Self-hosted video (best performance):
-          <video autoplay muted loop playsinline>
-            <source src="assets/video/hero-loop.mp4" type="video/mp4">
-          </video>
-
-          OPTION C — YouTube facade (click to load):
-          See the .hero-facade pattern in main.js
-        -->
-        <div class="hero-placeholder">
-          <span class="hero-placeholder-glyph" aria-hidden="true">縁</span>
-        </div>
+        <video autoplay muted loop playsinline preload="auto" class="hero-video">
+          <source src="assets/video/GetGoenWebHero.mp4" type="video/mp4">
+        </video>
       </div>
 
       <div class="hero-vignette" aria-hidden="true"></div>
@@ -120,88 +100,128 @@
 
     <div class="red-rule" aria-hidden="true"></div>
 
-    <!-- ── WORK ───────────────────────────────────────────────────── -->
-    <section class="section" id="work" aria-labelledby="work-heading">
-      <div class="section-header">
-        <h2 id="work-heading" class="section-title">Selected work</h2>
-        <span class="section-count" aria-label="5 projects shown">05 projects</span>
-      </div>
-
-      <div class="work-grid" role="list">
-
-        <!-- Featured project -->
-        <article class="work-item work-item--featured" role="listitem">
-          <a href="work/aizome/" class="work-item-link" aria-label="Aizome — The Floating World, documentary, 2025">
-            <div class="work-item-media">
-              <div class="ph ph-a" aria-hidden="true">
-                <span class="ph-kanji">藍</span>
-              </div>
-            </div>
-            <div class="work-item-info">
-              <span class="work-title">Aizome — The Floating World</span>
-              <span class="work-meta">Documentary · 2025</span>
-            </div>
-          </a>
-        </article>
-
-        <article class="work-item" role="listitem">
-          <a href="work/shugendo/" class="work-item-link" aria-label="Shugendo, documentary, 2024">
-            <div class="work-item-media">
-              <div class="ph ph-b" aria-hidden="true">
-                <span class="ph-kanji">修</span>
-              </div>
-            </div>
-            <div class="work-item-info">
-              <span class="work-title">Shugendo</span>
-              <span class="work-meta">Documentary · 2024</span>
-            </div>
-          </a>
-        </article>
-
-        <article class="work-item" role="listitem">
-          <a href="work/temple-art-kyoto/" class="work-item-link" aria-label="Temple + Art, Kyoto, cultural project, 2024">
-            <div class="work-item-media">
-              <div class="ph ph-c" aria-hidden="true">
-                <span class="ph-kanji">境</span>
-              </div>
-            </div>
-            <div class="work-item-info">
-              <span class="work-title">Temple + Art, Kyoto</span>
-              <span class="work-meta">Cultural · 2024</span>
-            </div>
-          </a>
-        </article>
-
-        <article class="work-item" role="listitem">
-          <a href="work/danjiri/" class="work-item-link" aria-label="Danjiri artisan profile, documentary, 2024">
-            <div class="work-item-media">
-              <div class="ph ph-d" aria-hidden="true">
-                <span class="ph-kanji">匠</span>
-              </div>
-            </div>
-            <div class="work-item-info">
-              <span class="work-title">Danjiri — The Maker</span>
-              <span class="work-meta">Documentary · 2024</span>
-            </div>
-          </a>
-        </article>
-
-        <article class="work-item" role="listitem">
-          <a href="work/gzo-experience/" class="work-item-link" aria-label="GZO Experience, brand case study">
-            <div class="work-item-media">
-              <div class="ph ph-e" aria-hidden="true">
-                <span class="ph-kanji">縁</span>
-              </div>
-            </div>
-            <div class="work-item-info">
-              <span class="work-title">GZO Experience</span>
-              <span class="work-meta">Brand · Ongoing</span>
-            </div>
-          </a>
-        </article>
-
-      </div>
-    </section>
+ <!-- ── WORK SECTION HTML ──────────────────────────────────────── -->
+<section class="section" id="work" aria-labelledby="work-heading">
+  <div class="section-header">
+    <h2 id="work-heading" class="section-title">Selected work</h2>
+    <span class="section-count" aria-label="5 projects shown">05 projects</span>
+  </div>
+ 
+  <div class="work-grid" role="list">
+ 
+    <!-- Aizome — coming soon lightbox -->
+    <article class="work-item work-item--featured work-item--coming-soon" role="listitem">
+      <button
+        class="work-item-link work-lightbox-trigger"
+        data-type="coming-soon"
+        data-title="Aizome — The Floating World"
+        data-meta="Documentary · In production 2026"
+        data-poster="assets/img/aizome-still.jpg"
+        aria-label="Aizome — The Floating World, documentary, in production 2026"
+      >
+        <div class="work-item-media">
+          <div class="ph ph-a" aria-hidden="true">
+            <span class="ph-kanji">藍</span>
+          </div>
+          <span class="work-badge">In production</span>
+        </div>
+        <div class="work-item-info">
+          <span class="work-title">Aizome — The Floating World</span>
+          <span class="work-meta">Documentary · 2026</span>
+        </div>
+      </button>
+    </article>
+ 
+    <!-- Shugendo — YouTube lightbox -->
+    <article class="work-item" role="listitem">
+      <button
+        class="work-item-link work-lightbox-trigger"
+        data-type="youtube"
+        data-video-id="isGkmbz33f8"
+        data-title="Shugendo"
+        data-meta="Documentary · 2024"
+        aria-label="Shugendo, documentary, 2024 — watch video"
+      >
+        <div class="work-item-media">
+          <div class="ph ph-b" aria-hidden="true">
+            <span class="ph-kanji">修</span>
+          </div>
+          <img class="work-item-thumb" src="https://img.youtube.com/vi/isGkmbz33f8/maxresdefault.jpg" alt="Shugendo">
+          <span class="work-play-icon" aria-hidden="true">▶</span>
+        </div>
+        <div class="work-item-info">
+          <span class="work-title">Shugendo</span>
+          <span class="work-meta">Documentary · 2024</span>
+        </div>
+      </button>
+    </article>
+ 
+    <!-- Karesansui — YouTube lightbox -->
+    <article class="work-item" role="listitem">
+      <button
+        class="work-item-link work-lightbox-trigger"
+        data-type="youtube"
+        data-video-id="rBDHUmixEZc"
+        data-title="Karesansui"
+        data-meta="Cultural · 2024"
+        aria-label="Karesansui, cultural, 2024 — watch video"
+      >
+        <div class="work-item-media">
+          <div class="ph ph-c" aria-hidden="true">
+            <span class="ph-kanji">庭</span>
+          </div>
+          <img class="work-item-thumb" src="https://img.youtube.com/vi/rBDHUmixEZc/maxresdefault.jpg" alt="Karesansui">
+          <span class="work-play-icon" aria-hidden="true">▶</span>
+        </div>
+        <div class="work-item-info">
+          <span class="work-title">Karesansui</span>
+          <span class="work-meta">Cultural · 2024</span>
+        </div>
+      </button>
+    </article>
+ 
+    <!-- Danjiri — YouTube lightbox -->
+    <article class="work-item" role="listitem">
+      <button
+        class="work-item-link work-lightbox-trigger"
+        data-type="youtube"
+        data-video-id="uvrKgDTyjlE"
+        data-title="Danjiri — The Maker"
+        data-meta="Documentary · 2023"
+        aria-label="Danjiri — The Maker, documentary, 2023 — watch video"
+      >
+        <div class="work-item-media">
+          <div class="ph ph-d" aria-hidden="true">
+            <span class="ph-kanji">匠</span>
+          </div>
+          <img class="work-item-thumb" src="https://img.youtube.com/vi/uvrKgDTyjlE/maxresdefault.jpg" alt="Danjiri — The Maker">
+          <span class="work-play-icon" aria-hidden="true">▶</span>
+        </div>
+        <div class="work-item-info">
+          <span class="work-title">Danjiri — The Maker</span>
+          <span class="work-meta">Documentary · 2023</span>
+        </div>
+      </button>
+    </article>
+ 
+    <!-- GZO Experience — links to project page, no lightbox -->
+    <article class="work-item work-item--case-study" role="listitem">
+      <a href="work/gzo-experience/" class="work-item-link" aria-label="GZO Experience, brand case study — view project">
+        <div class="work-item-media">
+          <div class="ph ph-e" aria-hidden="true">
+            <span class="ph-kanji">縁</span>
+          </div>
+          <span class="work-case-study-label" aria-hidden="true">Case study →</span>
+        </div>
+        <div class="work-item-info">
+          <span class="work-title">GZO Experience</span>
+          <span class="work-meta">Brand · Ongoing</span>
+        </div>
+      </a>
+    </article>
+ 
+  </div>
+</section>
 
     <!-- ── STATEMENT ──────────────────────────────────────────────── -->
     <div class="statement" aria-hidden="true">
@@ -326,6 +346,53 @@
     </span>
   </footer>
 
+  
+  <div
+  id="gg-lightbox"
+  class="gg-lightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Video viewer"
+  hidden
+>
+  <div class="gg-lightbox-backdrop"></div>
+ 
+  <div class="gg-lightbox-inner">
+    <button class="gg-lightbox-close" aria-label="Close">
+      <span aria-hidden="true">✕</span>
+    </button>
+ 
+    <!-- YouTube player -->
+    <div class="gg-lightbox-player" id="gg-player-wrap">
+      <iframe
+        id="gg-yt-iframe"
+        src=""
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+        title="Video player"
+      ></iframe>
+    </div>
+ 
+    <!-- Coming soon state -->
+    <div class="gg-lightbox-coming-soon" id="gg-coming-soon" hidden>
+      <div class="gg-cs-poster">
+        <img id="gg-cs-img" src="" alt="" />
+        <div class="gg-cs-overlay">
+          <p class="gg-cs-label">In production</p>
+          <p class="gg-cs-sub">This film is currently in post-production.<br>Follow along for updates.</p>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="gg-lightbox-meta">
+      <span id="gg-lightbox-title" class="gg-lb-title"></span>
+      <span id="gg-lightbox-meta" class="gg-lb-meta"></span>
+    </div>
+  </div>
+</div>
+  
+  
   <!-- ── SCRIPTS ────────────────────────────────────────────────── -->
   <script src="js/main.js"></script>
 

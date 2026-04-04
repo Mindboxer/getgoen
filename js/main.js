@@ -39,53 +39,82 @@ if (yearEl) {
 }
 
 
-/* ── 3. WORK GRID — HOVER-TO-PLAY VIDEO ─────
-   When a <video> element exists inside a
-   .work-item-media, play it on hover and
-   reset on mouse leave.
-   CSS handles the opacity fade.
-──────────────────────────────────────────── */
-document.querySelectorAll('.work-item').forEach(item => {
-  const video = item.querySelector('video');
-  if (!video) return;
 
-  item.addEventListener('mouseenter', () => {
-    video.play().catch(() => {
-      // Autoplay may be blocked by browser policy — fail silently
+/* ── 3. WORK GRID — LIGHTBOX ────────────────
+   Handles YouTube embed and coming-soon state
+   lightbox for work grid cards.
+──────────────────────────────────────────── */
+
+(function () {
+  const lightbox      = document.getElementById('gg-lightbox');
+  const backdrop      = lightbox.querySelector('.gg-lightbox-backdrop');
+  const closeBtn      = lightbox.querySelector('.gg-lightbox-close');
+  const iframe        = document.getElementById('gg-yt-iframe');
+  const playerWrap    = document.getElementById('gg-player-wrap');
+  const comingSoon    = document.getElementById('gg-coming-soon');
+  const csImg         = document.getElementById('gg-cs-img');
+  const lbTitle       = document.getElementById('gg-lightbox-title');
+  const lbMeta        = document.getElementById('gg-lightbox-meta');
+ 
+  const YT_BASE = 'https://www.youtube.com/embed/';
+  const YT_PARAMS = '?autoplay=1&rel=0&modestbranding=1&controls=1&color=white&vq=hd1080';
+ 
+  function openLightbox(trigger) {
+    const type    = trigger.dataset.type;
+    const title   = trigger.dataset.title || '';
+    const meta    = trigger.dataset.meta  || '';
+ 
+    lbTitle.textContent = title;
+    lbMeta.textContent  = meta;
+ 
+    if (type === 'youtube') {
+      const id = trigger.dataset.videoId;
+      iframe.src = YT_BASE + id + YT_PARAMS;
+      playerWrap.hidden  = false;
+      comingSoon.hidden  = true;
+    } else if (type === 'coming-soon') {
+      const poster = trigger.dataset.poster || '';
+      csImg.src    = poster;
+      csImg.alt    = title;
+      playerWrap.hidden  = true;
+      comingSoon.hidden  = false;
+    }
+ 
+    lightbox.hidden = false;
+    // Trigger transition on next frame
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => lightbox.classList.add('is-open'));
     });
+ 
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+ 
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+ 
+    setTimeout(() => {
+      lightbox.hidden = true;
+      iframe.src = ''; // stops YouTube playback
+      playerWrap.hidden = true;
+      comingSoon.hidden = true;
+    }, 300);
+  }
+ 
+  // Trigger clicks
+  document.querySelectorAll('.work-lightbox-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => openLightbox(trigger));
   });
-
-  item.addEventListener('mouseleave', () => {
-    video.pause();
-    video.currentTime = 0;
+ 
+  // Close on backdrop click
+  backdrop.addEventListener('click', closeLightbox);
+ 
+  // Close button
+  closeBtn.addEventListener('click', closeLightbox);
+ 
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
   });
-});
-
-
-/* ── 4. HERO — YOUTUBE FACADE ───────────────
-   Click-to-load pattern for YouTube in the hero.
-   Keeps page load fast — iframe only loads
-   when the user explicitly clicks play.
-
-   To use:
-   1. Add a .hero-facade div inside .hero-media
-   2. Set a background-image thumbnail on it in CSS
-   3. Add a play button element inside it
-   4. Uncomment the code below and add your video ID
-
-const heroFacade = document.querySelector('.hero-facade');
-
-if (heroFacade) {
-  heroFacade.addEventListener('click', () => {
-    const videoId = 'YOUR_YOUTUBE_VIDEO_ID';
-    const iframe = document.createElement('iframe');
-
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&rel=0&modestbranding=1`;
-    iframe.allow = 'autoplay; fullscreen';
-    iframe.title = 'Get Goen showreel';
-    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
-
-    heroFacade.replaceWith(iframe);
-  }, { once: true });
-}
-──────────────────────────────────────────── */
+})();

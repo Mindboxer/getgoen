@@ -118,3 +118,21 @@ if (yearEl) {
     if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
   });
 })();
+
+
+/* ── 4. STATEMENT KANJI ──────────────────────
+   Reveals the kanji in the statement on scroll.
+──────────────────────────────────────────── */
+const statement = document.querySelector('.statement');
+if (statement) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => statement.classList.add('logo-revealed'), 2000);
+      } else {
+        statement.classList.remove('logo-revealed');
+      }
+    });
+  }, { threshold: 0.4 });
+  observer.observe(statement);
+}

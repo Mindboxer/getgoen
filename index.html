@@ -27,13 +27,18 @@
   <!-- ── Fonts ─────────────────────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
-
+ 
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:ital,wght@0,100..900;1,100..900&family=Syne:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- ── Stylesheet ────────────────────────────────────────────────── -->
   <link rel="stylesheet" href="css/style.css">
+
+  <link rel="icon" type="image/png" sizes="180x180" href="assets/images/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
 </head>
 
 <body>
+  <!-- <div class="gradient-blur gradient-blur--top"></div>
+<div class="gradient-blur gradient-blur--bottom"></div> -->
 
   <!-- ── NAVIGATION ───────────────────────────────────────────────── -->
   <header>
@@ -46,11 +51,20 @@
           width="44"
           height="44"
         >
-        <div class="nav-wordmark" aria-hidden="true">
+
+        <img
+  src="assets/images/goen-logo-text.webp"
+  alt=""
+  class="nav-wordmark-img"
+  width="…"
+  height="…"
+>
+</a>
+        <!-- <div class="nav-wordmark" aria-hidden="true">
           <span class="nav-wordmark-get">Get</span>
           <span class="nav-wordmark-goen">Goen</span>
         </div>
-      </a>
+       -->
 
       <ul class="nav-links" role="list">
         <li><a href="#work">Work</a></li>
@@ -76,14 +90,17 @@
 
       <div class="hero-content">
         <div class="hero-title-block">
-          <span class="hero-eyebrow">Visual Storytelling · Japan</span>
+          <span class="hero-eyebrow">Creative Studio · Osaka, Japan</span>
           <h1 class="hero-title">
-            Cinematic work<br>
-            <em>rooted in place.</em>
+            Visual<br>
+            stories<br>
+            from
+            <em>Japan</em>
           </h1>
           <p class="hero-sub">
-            Documentary and brand film from Osaka —
-            for clients who need more than a crew.
+            Film · Photography · Brand
+            <br>
+            For those who value depth
           </p>
         </div>
 
@@ -103,38 +120,34 @@
  <!-- ── WORK SECTION HTML ──────────────────────────────────────── -->
 <section class="section" id="work" aria-labelledby="work-heading">
   <div class="section-header">
-    <h2 id="work-heading" class="section-title">Selected work</h2>
+    <h2 id="work-heading" class="section-title">// Selected <em>work</em></h2>
     <span class="section-count" aria-label="5 projects shown">05 projects</span>
   </div>
  
   <div class="work-grid" role="list">
  
-    <!-- Aizome — coming soon lightbox -->
-    <article class="work-item work-item--featured work-item--coming-soon" role="listitem">
-      <button
-        class="work-item-link work-lightbox-trigger"
-        data-type="coming-soon"
-        data-title="Aizome — The Floating World"
-        data-meta="Documentary · In production 2026"
-        data-poster="assets/img/aizome-still.jpg"
-        aria-label="Aizome — The Floating World, documentary, in production 2026"
-      >
+
+    <!-- GZO Experience — links to project page, no lightbox -->
+    <article class="work-item work-item--featured work-item--case-study" role="listitem">
+      <a href="work/gzo-experience/" class="work-item-link" aria-label="GZO Experience, brand case study — view project">
         <div class="work-item-media">
-          <div class="ph ph-a" aria-hidden="true">
-            <span class="ph-kanji">藍</span>
+          <div class="ph ph-e" aria-hidden="true">
+            <span class="ph-kanji">縁</span>
           </div>
-          <span class="work-badge">In production</span>
+          <img class="work-item-thumb" src="assets/images/projects/gzo-experience/gzoTraffic.webp" alt="GZO Experience">
+          <span class="work-case-study-label" aria-hidden="true">Case study →</span>
         </div>
         <div class="work-item-info">
-          <span class="work-title">Aizome — The Floating World</span>
-          <span class="work-meta">Documentary · 2026</span>
+          <span class="work-title">GZO Experience</span>
+          <span class="work-meta">Brand · Ongoing</span>
         </div>
-      </button>
+      </a>
     </article>
+
  
     <!-- Shugendo — YouTube lightbox -->
     <article class="work-item" role="listitem">
-      <button
+      <div
         class="work-item-link work-lightbox-trigger"
         data-type="youtube"
         data-video-id="isGkmbz33f8"
@@ -153,12 +166,12 @@
           <span class="work-title">Shugendo</span>
           <span class="work-meta">Documentary · 2024</span>
         </div>
-      </button>
+      </div>
     </article>
  
     <!-- Karesansui — YouTube lightbox -->
     <article class="work-item" role="listitem">
-      <button
+      <div
         class="work-item-link work-lightbox-trigger"
         data-type="youtube"
         data-video-id="rBDHUmixEZc"
@@ -177,12 +190,12 @@
           <span class="work-title">Karesansui</span>
           <span class="work-meta">Cultural · 2024</span>
         </div>
-      </button>
+      </div>
     </article>
  
     <!-- Danjiri — YouTube lightbox -->
     <article class="work-item" role="listitem">
-      <button
+      <div
         class="work-item-link work-lightbox-trigger"
         data-type="youtube"
         data-video-id="uvrKgDTyjlE"
@@ -201,23 +214,31 @@
           <span class="work-title">Danjiri — The Maker</span>
           <span class="work-meta">Documentary · 2023</span>
         </div>
-      </button>
+      </div>
     </article>
  
-    <!-- GZO Experience — links to project page, no lightbox -->
-    <article class="work-item work-item--case-study" role="listitem">
-      <a href="work/gzo-experience/" class="work-item-link" aria-label="GZO Experience, brand case study — view project">
+    <!-- Aizome — coming soon lightbox -->
+    <article class="work-item work-item--coming-soon" role="listitem">
+      <div
+        class="work-item-link work-lightbox-trigger"
+        data-type="coming-soon"
+        data-title="Aizome — The Floating World"
+        data-meta="Documentary · In production 2026"
+        data-poster="assets/img/aizome-still.jpg"
+        aria-label="Aizome — The Floating World, documentary, in production 2026"
+      >
         <div class="work-item-media">
-          <div class="ph ph-e" aria-hidden="true">
-            <span class="ph-kanji">縁</span>
+          <div class="ph ph-a" aria-hidden="true">
+            <span class="ph-kanji">藍</span>
           </div>
-          <span class="work-case-study-label" aria-hidden="true">Case study →</span>
+          <img class="work-item-thumb" src="assets/images/projects/aizome/aizome-thumb.avif" alt="Aizome">
+          <span class="work-badge">In production</span>
         </div>
         <div class="work-item-info">
-          <span class="work-title">GZO Experience</span>
-          <span class="work-meta">Brand · Ongoing</span>
+          <span class="work-title">Aizome — The Floating World</span>
+          <span class="work-meta">Documentary · 2026</span>
         </div>
-      </a>
+      </div>
     </article>
  
   </div>
@@ -226,11 +247,11 @@
     <!-- ── STATEMENT ──────────────────────────────────────────────── -->
     <div class="statement" aria-hidden="true">
       <div class="statement-mark">
-        <img src="assets/images/goen-logo.png" alt="" role="presentation">
+        <img class="mark-logo" src="assets/images/goen-logo.png" alt="" role="presentation">
+        <img class="mark-kanji" src="assets/images/goen-kanji.png" alt="" role="presentation">
       </div>
       <p class="statement-text">
-        Some stories take twenty years<br>
-        of proximity to <em>see.</em>
+        The fateful encounter between <em>your story</em> and <em>the world.</em><br>
       </p>
     </div>
 
@@ -238,30 +259,17 @@
     <section class="about" id="about" aria-labelledby="about-heading">
       <div class="about-left">
         <h2 id="about-heading">
-          Born in Australia.<br>At home in <em>Osaka.</em>
+          A global lens.<br>Focused on <em>Japan.</em>
         </h2>
-        <p>Two decades in Japan. Native-level Japanese. Get Goen sits at the intersection of cultural fluency and cinematic storytelling — finding the images that take years of proximity to see.</p>
-        <p>We make films for brands, cultural institutions, and tourism operators who understand that good visual work requires knowing a place — not just visiting it.</p>
+        <p>A cross-cultural background. Years of immersion in Japanese craft, culture, and community. Get Goen sits at the intersection of cultural depth and cinematic storytelling. </p>
+        <p>We make films for brands and institutions who understand that real visual storytelling requires knowing a place — not just visiting it.</p>
         <a href="#contact">Start a conversation →</a>
       </div>
 
       <div class="about-right" aria-hidden="true">
-        <div class="stat">
-          <span class="stat-num">20+</span>
-          <span class="stat-label">Years in Japan</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">JP</span>
-          <span class="stat-label">Native-level Japanese</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">4K</span>
-          <span class="stat-label">Cinematic production</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">縁</span>
-          <span class="stat-label">Fateful encounters</span>
-        </div>
+        <blockquote class="client-proposition">
+          We operate fluently in Japanese culture and international creativity — so you never have to choose between authenticity and reach.
+        </blockquote>
       </div>
     </section>
 
@@ -293,7 +301,7 @@
     <section class="contact" id="contact" aria-labelledby="contact-heading">
       <div class="contact-intro">
         <h2 id="contact-heading">
-          Let's find<br>our <em>goen.</em>
+          Let's get<br><em>GOEN</em>
         </h2>
         <p class="contact-sub">
           Based in Osaka. Working globally.<br>

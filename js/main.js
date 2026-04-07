@@ -30,6 +30,25 @@ const handleNavScroll = () => {
 window.addEventListener('scroll', handleNavScroll, { passive: true });
 
 
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+navToggle.addEventListener('click', () => {
+  const isOpen = navMenu.classList.toggle('is-open');
+  navToggle.setAttribute('aria-expanded', isOpen);
+});
+
+// Close on link click
+navMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+
+
 /* ── 2. FOOTER YEAR ─────────────────────────
    Keeps the copyright year current automatically.
 ──────────────────────────────────────────── */

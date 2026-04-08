@@ -37,16 +37,24 @@ const navMenu = document.getElementById('nav-menu');
 navToggle.addEventListener('click', () => {
   const isOpen = navMenu.classList.toggle('is-open');
   navToggle.setAttribute('aria-expanded', isOpen);
+
+  if (isOpen) {
+    // Move to body so position:fixed escapes the header stacking context
+    document.body.appendChild(navMenu);
+  } else {
+    // Move back into nav for desktop layout
+    navToggle.parentElement.appendChild(navMenu);
+  }
 });
 
-// Close on link click
 navMenu.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     navMenu.classList.remove('is-open');
     navToggle.setAttribute('aria-expanded', 'false');
+    // Move back into nav
+    navToggle.parentElement.appendChild(navMenu);
   });
 });
-
 
 
 /* ── 2. FOOTER YEAR ─────────────────────────

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: #0a0908;
+    font-family: 'Big Shoulders Display', Georgia, serif;
+  }
+
+  .bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 80% 50%, rgba(143, 28, 28, 0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(143, 28, 28, 0.08) 0%, transparent 50%);
+  }
+
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(0,0,0,0.03) 3px,
+      rgba(0,0,0,0.03) 4px
+    );
+    pointer-events: none;
+  }
+
+  .border-top {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    right: 60px;
+    height: 0.5px;
+    background: linear-gradient(to right, #8f1c1c, transparent);
+  }
+
+  .border-bottom {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    right: 60px;
+    height: 0.5px;
+    background: linear-gradient(to right, #8f1c1c, transparent);
+  }
+
+  .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    gap: 80px;
+  }
+
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #c42424;
+  }
+
+  .title {
+    font-family: 'Big Shoulders Display', serif;
+    font-size: 108px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.88;
+    letter-spacing: 0.06em;
+    color: #e6e0d6;
+  }
+
+  .title em {
+    font-style: normal;
+    color: #c42424;
+    opacity: 0.9;
+  }
+
+  .sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #7a7268;
+    margin-top: 8px;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+
+  .kanji {
+    font-family: 'Big Shoulders Display', serif;
+    font-size: 140px;
+    font-weight: 900;
+    color: rgba(143, 28, 28, 0.12);
+    line-height: 1;
+    font-style: italic;
+    letter-spacing: -0.02em;
+  }
+
+  .location {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #7a7268;
+    text-align: right;
+  }
+
+  .location span {
+    display: block;
+    font-family: 'Big Shoulders Display', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: #b8b0a4;
+    margin-top: 4px;
+    letter-spacing: 0.06em;
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:ital,wght@0,900;1,900&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="bg"></div>
+  <div class="scanlines"></div>
+  <div class="border-top"></div>
+  <div class="border-bottom"></div>
+
+  <div class="content">
+    <div class="left">
+      <span class="eyebrow">Creative Studio · Osaka, Japan</span>
+      <h1 class="title">
+        Get<br>
+        <em>Goen</em>
+      </h1>
+      <p class="sub">Visual Storytelling from Japan · Film · Photography · Brand</p>
+    </div>
+    <div class="right">
+<img src="assets/images/goenLogo.svg" alt="Get Goen" style="width: 180px; height: 180px; object-fit: contain; opacity: 0.9; mix-blend-mode: lighten;">
+      <div class="location">
+        Osaka, Japan
+        <span>大阪 · 縁</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

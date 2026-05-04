@@ -1325,6 +1325,27 @@ button.work-item-link {
   border-color: var(--red);
 }
 
+.contact-ig {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 42px;
+  padding-top: 6px;
+  color: var(--fog);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-ig:hover {
+  color: var(--red-hi);
+}
+
+.contact-ig-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
 /* ── 11. FOOTER ─────────────────────────── */
 footer {
   padding: 8px var(--page-pad);

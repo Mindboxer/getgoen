@@ -163,3 +163,32 @@ if (statement) {
   }, { threshold: 0.4 });
   observer.observe(statement);
 }
+
+
+/* ── 5. DYNAMIC REALIGNING OF SERVICES ── */
+const serviceCards = document.querySelectorAll('.service');
+
+if (serviceCards.length) {
+  const ro = new ResizeObserver(entries => {
+    entries.forEach(entry => {
+      const h = entry.contentRect.height;
+
+      // define your range (tweak these)
+      const minH = 350;  // small card
+      const maxH = 560;  // large card
+
+      // clamp height into range
+      const clamped = Math.min(Math.max(h, minH), maxH);
+
+      // normalize to 0 → 1
+      const t = (clamped - minH) / (maxH - minH);
+
+      // interpolate: 10% → 50%
+      const percent = 5 + (t * (50 - 5));
+
+      entry.target.style.setProperty('--content-top', percent + '%');
+    });
+  });
+
+  serviceCards.forEach(card => ro.observe(card));
+}

@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GZO Experience — Case Study · Get Goen</title>
+  <meta name="description" content="Co-founder and creative director of GZO Experience — brand building, content creation, and web development for a Japanese-inspired cultural brand.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:ital,wght@0,100..900;1,100..900&family=DM+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="icon" type="image/png" sizes="180x180" href="../../assets/images/favicon.png">
+  <style>
+
+    /* ── CASE STUDY PAGE TOKENS ─── */
+    :root {
+      --cs-gap: clamp(60px, 8vw, 120px);
+    }
+
+    /* ── BACK NAV ─── */
+ .cs-back {
+  position: fixed;
+  top: 20px;
+  left: var(--page-pad);
+  right: var(--page-pad);
+  z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  pointer-events: none; /* let clicks pass through the middle gap */
+}
+
+.cs-back-wordmark {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  object-position: left center;
+  opacity: 0.85;
+  mix-blend-mode: lighten;
+  pointer-events: all;
+  transition: opacity 0.3s;
+}
+
+.cs-back-wordmark:hover {
+  opacity: 1;
+}
+
+.cs-back-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  opacity: 0.85;
+  pointer-events: all;
+  transition: opacity 0.3s;
+}
+
+.cs-back-icon:hover {
+  opacity: 1;
+}
+
+.cs-back-left {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  pointer-events: all;
+}
+
+.cs-back-arrow {
+  font-size: 16px;
+  color: var(--red-hi);
+}
+
+.cs-back-mobile {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 16px var(--page-pad);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--fog);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--dust);
+  background: var(--ash);
+}
+
+    /* ── HERO ─── */
+    .cs-hero {
+      position: relative;
+      width: 100%;
+      height: clamp(320px, 100vw, 100vh);
+      min-height: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .cs-hero-media {
+      position: absolute;
+      inset: 0;
+      background: var(--ash);
+    }
+
+    .cs-hero-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      opacity: 0.7;
+    }
+
+    /* Fallback gradient when no image is set */
+    .cs-hero-media--no-img {
+      background: linear-gradient(145deg, #1a1410 0%, #0e0c10 100%);
+    }
+
+    .cs-hero-vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(10,9,8,0.97) 0%, rgba(10,9,8,0.3) 55%, transparent 100%),
+        linear-gradient(to bottom, rgba(10,9,8,0.5) 0%, transparent 30%);
+      pointer-events: none;
+    }
+
+    .cs-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 var(--page-pad) 72px;
+      width: 100%;
+    }
+
+    .cs-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .cs-eyebrow-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--red-hi);
+    }
+
+    .cs-eyebrow-rule {
+      width: 40px;
+      height: 0.5px;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    .cs-hero-title {
+      font-family: var(--font-serif);
+      font-weight: 900;
+      font-size: clamp(52px, 9vw, 140px);
+      text-transform: uppercase;
+      line-height: 0.88;
+      letter-spacing: var(--tracking-display);
+      color: var(--paper);
+    }
+
+    .cs-hero-title em {
+      font-style: normal;
+      color: var(--red-hi);
+      opacity: 0.85;
+    }
+
+    .cs-hero-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 28px;
+      margin-top: 28px;
+    }
+
+    .cs-hero-meta-item {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mist);
+    }
+
+    .cs-hero-meta-sep {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      align-self: center;
+    }
+
+    /* ── BODY WRAPPER ─── */
+    .cs-body {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* ── RED RULE ─── */
+    .cs-rule {
+      width: 100%;
+      height: 0.5px;
+      background: linear-gradient(to right, var(--red) 0%, transparent 100%);
+    }
+
+    /* ── ROLES STRIP ─── */
+    .cs-roles {
+      padding: 48px var(--page-pad);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 40px 40px;
+      align-items: center;
+      border-bottom: 0.5px solid var(--dust);
+    }
+
+    .cs-roles-label {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--fog);
+      white-space: nowrap;
+    }
+
+    .cs-roles-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+    }
+
+    .cs-role-tag {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red-hi);
+      border: 0.5px solid var(--red);
+      padding: 5px 12px;
+    }
+
+    /* ── INTRO SECTION ─── */
+    .cs-intro {
+      padding: var(--cs-gap) var(--page-pad);
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .cs-intro-left {
+      position: sticky;
+      top: 100px;
+    }
+
+    .cs-section-label {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--red-hi);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cs-section-label::before {
+      content: "";
+      width: 24px;
+      height: 0.5px;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    .cs-intro-heading {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: clamp(28px, 3.5vw, 52px);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.0;
+      color: var(--paper);
+    }
+
+    .cs-intro-heading em {
+      font-style: normal;
+      color: var(--red-hi);
+    }
+
+    .cs-intro-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .cs-intro-right p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--mist);
+    }
+
+    .cs-intro-right p strong {
+      color: var(--paper);
+      font-weight: 500;
+    }
+
+    /* Co-founder callout */
+    .cs-cofounder-mark {
+      margin-top: 12px;
+      padding: 20px 24px;
+      border-left: 2px solid var(--red);
+      background: rgba(143, 28, 28, 0.06);
+    }
+
+    .cs-cofounder-mark p {
+      font-family: var(--font-serif);
+      font-size: clamp(16px, 1.8vw, 22px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.3;
+      color: var(--paper);
+      margin: 0;
+    }
+
+    /* ── CONTENT SECTION ─── */
+    .cs-content-section {
+      padding: var(--cs-gap) var(--page-pad);
+      border-top: 0.5px solid var(--dust);
+      
+    }
+
+    .cs-content-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 40px;
+    }
+
+    .cs-content-heading {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: clamp(28px, 4vw, 56px);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-display);
+      line-height: 0.95;
+      color: var(--paper);
+    }
+
+    .cs-content-heading em {
+      font-style: normal;
+      color: var(--red-hi);
+      opacity: 0.85;
+    }
+
+    .cs-content-desc {
+      max-width: 36ch;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--mist);
+      text-align: right;
+    }
+
+    /* ── PHOTO GRID ─── */
+    .cs-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+
+    .cs-photo-grid--2col {
+      grid-template-columns: 1.4fr 1fr;
+    }
+
+    .cs-photo-item {
+      position: relative;
+      overflow: hidden;
+      background: var(--ash);
+    }
+
+    .cs-photo-item--tall {
+      grid-row: span 2;
+    }
+
+    .cs-photo-item--wide {
+      grid-column: span 2;
+    }
+
+    .cs-photo-item img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, opacity 0.5s;
+    }
+
+    /* Aspect ratio holder */
+    .cs-photo-ratio {
+      padding-bottom: 75%; /* 4:3 default */
+      position: relative;
+    }
+
+    .cs-photo-item--tall .cs-photo-ratio {
+      height: 100%;
+      padding-bottom: 0;
+    }
+
+    .cs-photo-item--wide .cs-photo-ratio {
+      padding-bottom: 45%;
+    }
+
+    .cs-photo-item--square .cs-photo-ratio {
+      padding-bottom: 100%;
+    }
+
+    .cs-photo-item:hover img {
+      transform: scale(1.03);
+      opacity: 0.85;
+    }
+
+    /* Placeholder fill for photos not yet added */
+    .cs-photo-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--dust);
+    }
+
+    .cs-photo-placeholder span {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fog);
+      opacity: 0.5;
+    }
+
+    /* ── VERTICAL VIDEO ROW ─── */
+    .cs-video-row {
+      margin-top: 3px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+    }
+
+    .cs-video-item {
+      position: relative;
+      overflow: hidden;
+      background: var(--ash);
+    }
+
+    .cs-video-ratio {
+      padding-bottom: 125%;
+      position: relative;
+    }
+
+    .cs-video-item video,
+    .cs-video-item iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+    }
+
+    .cs-video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--ash);
+      border: 0.5px solid var(--dust);
+    }
+
+    .cs-video-placeholder-icon {
+      font-size: 20px;
+      color: var(--red-hi);
+      opacity: 0.4;
+    }
+
+    .cs-video-placeholder span {
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fog);
+      opacity: 0.5;
+    }
+
+    .cs-video-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px;
+      background: linear-gradient(to top, rgba(10,9,8,0.85) 0%, transparent 100%);
+      font-size: 8px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--fog);
+      pointer-events: none;
+    }
+
+.cs-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.cs-video-item.is-playing .cs-video-overlay {
+  opacity: 0;
+}
+
+.cs-video-item.is-playing:hover .cs-video-overlay {
+  opacity: 1;
+}
+
+.cs-video-play-btn {
+  font-size: 28px;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  transition: transform 0.2s;
+}
+
+.cs-video-overlay:hover .cs-video-play-btn {
+  transform: scale(1.1);
+}
+
+.cs-video-controls {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cs-video-item.is-playing:hover .cs-video-controls {
+  opacity: 1;
+}
+
+.cs-vid-btn {
+  background: rgba(0,0,0,0.55);
+  border: none;
+  color: white;
+  font-size: 14px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.cs-vid-btn:hover {
+  background: rgba(0,0,0,0.85);
+}
+
+
+.cs-vid-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.cs-vid-popup.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.cs-vid-popup-inner {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+
+.cs-vid-popup video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cs-vid-popup-close {
+  position: absolute;
+  top: -36px;
+  right: 0;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.cs-vid-popup-close:hover {
+  color: white;
+}
+
+
+    /* ── WEB SECTION ─── */
+    .cs-web-section {
+      padding: var(--cs-gap) var(--page-pad);
+      border-top: 0.5px solid var(--dust);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .cs-web-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .cs-web-left p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--mist);
+    }
+
+    .cs-web-left p strong {
+      color: var(--paper);
+      font-weight: 500;
+    }
+
+    .cs-web-capabilities {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .cs-web-cap {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      font-size: 12px;
+      color: var(--mist);
+    }
+
+    .cs-web-cap::before {
+      content: "—";
+      color: var(--red-hi);
+      flex-shrink: 0;
+      font-size: 10px;
+    }
+
+    .cs-web-right {
+      position: relative;
+    }
+
+    .cs-web-screen {
+      position: relative;
+      overflow: hidden;
+      border: 0.5px solid var(--dust);
+      background: var(--ash);
+        aspect-ratio: 16 / 10;
+    }
+
+    .cs-web-screen img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top; /* shows the top of the screenshot */
+  opacity: 0.85;
+  transition: opacity 0.4s;
+    }
+
+    .cs-web-screen:hover img {
+      opacity: 1;
+    }
+
+    .cs-web-screen-placeholder {
+      padding-bottom: 62%;
+      position: relative;
+      background: var(--dust);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cs-web-screen-placeholder span {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fog);
+      opacity: 0.4;
+    }
+
+    .cs-web-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--red-hi);
+      text-decoration: none;
+      border-bottom: 0.5px solid var(--red);
+      padding-bottom: 3px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .cs-web-link:hover {
+      color: var(--paper);
+      border-color: var(--paper);
+    }
+
+    /* ── NEXT PROJECT ─── */
+    .cs-next {
+      padding: 80px var(--page-pad);
+      border-top: 0.5px solid var(--dust);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cs-next-label {
+      font-size: 8px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--fog);
+    }
+
+    .cs-next-link {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .cs-next-link:hover { opacity: 0.7; }
+
+    .cs-next-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: clamp(20px, 3vw, 36px);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--paper);
+    }
+
+    .cs-next-arrow {
+      font-size: 14px;
+      color: var(--red-hi);
+    }
+
+    /* ── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .cs-intro {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .cs-intro-left {
+        position: static;
+      }
+
+      .cs-content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .cs-content-desc {
+        text-align: left;
+      }
+
+      .cs-photo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cs-video-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cs-web-section {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .cs-roles {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+.cs-back {
+  display: none;
+}
+
+.cs-back-mobile {
+  display: flex;
+}
+
+      .cs-hero-meta {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .cs-photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cs-photo-item--tall,
+      .cs-photo-item--wide {
+        grid-row: auto;
+        grid-column: auto;
+      }
+
+      .cs-photo-item--tall .cs-photo-ratio {
+        height: auto;
+        padding-bottom: 150%;
+      }
+
+      .cs-video-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cs-next {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back link -->
+<a href="../../index.html" class="cs-back" aria-label="Get Goen — home">
+  <div class="cs-back-left">
+    <span class="cs-back-arrow">←</span>
+    <img src="../../assets/images/goen-logo-text.webp" alt="Get Goen" class="cs-back-wordmark">
+  </div>
+  <img src="../../assets/images/goenLogo.svg" alt="" class="cs-back-icon">
+</a>
+
+<a href="../../index.html" class="cs-back-mobile" aria-label="Get Goen — home">
+  <span style="color: var(--red-hi); font-size: 14px;">←</span>
+  Get Goen
+</a>
+
+  <main>
+
+    <!-- ── HERO ─── -->
+    <section class="cs-hero" aria-label="GZO Experience case study">
+      <div class="cs-hero-media" >
+        <img src="../../assets/images/projects/gzo-experience/gzoTraffic.webp" alt="">
+      </div>
+      <div class="cs-hero-vignette"></div>
+      <div class="cs-hero-content">
+        <div class="cs-eyebrow">
+          <span class="cs-eyebrow-label">Case Study</span>
+          <div class="cs-eyebrow-rule"></div>
+          <span class="cs-eyebrow-label">Brand · Content · Web</span>
+        </div>
+        <h1 class="cs-hero-title">
+          GZO<br>
+          <em>Experience</em>
+        </h1>
+        <div class="cs-hero-meta">
+          <span class="cs-hero-meta-item">Co-founder</span>
+          <div class="cs-hero-meta-sep"></div>
+          <span class="cs-hero-meta-item">Creative Director</span>
+          <div class="cs-hero-meta-sep"></div>
+          <span class="cs-hero-meta-item">Ongoing · 2022–</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="cs-rule"></div>
+
+    <div class="cs-body">
+
+      <!-- ── ROLES STRIP ─── -->
+      <div class="cs-roles">
+        <span class="cs-roles-label">[ Disciplines ]</span>
+        <div class="cs-roles-list">
+          <span class="cs-role-tag">Brand Strategy</span>
+          <span class="cs-role-tag">Creative Direction</span>
+          <span class="cs-role-tag">Photography</span>
+          <span class="cs-role-tag">Video Production</span>
+          <span class="cs-role-tag">Post Production</span>
+          <span class="cs-role-tag">Social Content</span>
+          <span class="cs-role-tag">Web Design</span>
+          <span class="cs-role-tag">E-commerce</span>
+        </div>
+      </div>
+
+      <!-- ── INTRO ─── -->
+      <section class="cs-intro" aria-labelledby="gzo-intro-heading">
+        <div class="cs-intro-left">
+          <p class="cs-section-label">Overview</p>
+          <h2 id="gzo-intro-heading" class="cs-intro-heading">
+            Built from<br>
+            the<br>
+            <em>inside</em>
+          </h2>
+        </div>
+        <div class="cs-intro-right">
+          <div class="cs-cofounder-mark">
+            <p>As co-founder and creative director, every frame, every asset, and every story is created with care and attention.</p>
+          </div>
+          <p>GZO Experience is a cross-cultural brand bringing Japanese-inspired clothing and cultural experiences to a global audience. Building it meant working across every discipline at once — developing the visual identity, directing and producing content, and building the digital infrastructure that holds it all together.</p>
+          <p>The work has been <strong>ongoing since inception</strong>: a continuous cycle of creative strategy, content production, and platform development as the brand has evolved from concept into a functioning cross-cultural enterprise.</p>
+          <p>This project is a living body of work — and the proof that effective brand building requires more than good content. It requires genuine cultural fluency.</p>
+        </div>
+      </section>
+
+      <!-- ── CONTENT SECTION ─── -->
+      <section class="cs-content-section" aria-labelledby="gzo-content-heading">
+        <div class="cs-content-header">
+          <h2 id="gzo-content-heading" class="cs-content-heading">
+            Content<br>
+            <em>&amp; Photography</em>
+          </h2>
+          <p class="cs-content-desc">An ongoing stream of photo, video, and design work — all produced in-house, all pulled from the same creative direction.</p>
+        </div>
+
+        <!-- Photo grid — swap placeholders for real images -->
+        <div class="cs-photo-grid">
+
+          <div class="cs-photo-item cs-photo-item--tall">
+            <div class="cs-photo-ratio">
+              <img src="../../assets/images/projects/gzo-experience/gzoYuki01.jpg" alt="GZO Experience">
+              <!-- <div class="cs-photo-placeholder"><span>Photo</span></div> -->
+            </div>
+          </div>
+
+          <div class="cs-photo-item">
+            <div class="cs-photo-ratio">
+              <img src="../../assets/images/projects/gzo-experience/TeaWeb35.jpg" alt="GZO Experience">
+              <!-- <div class="cs-photo-placeholder"><span>Photo</span></div> -->
+            </div>
+          </div>
+
+          <div class="cs-photo-item">
+            <div class="cs-photo-ratio">
+              <img src="../../assets/images/projects/gzo-experience/gzoSamue.jpg" alt="GZO Experience">
+              <!-- <div class="cs-photo-placeholder"><span>Photo</span></div> -->
+            </div>
+          </div>
+
+          <div class="cs-photo-item cs-photo-item--square">
+            <div class="cs-photo-ratio cs-photo-item--square">
+              <img src="../../assets/images/projects/gzo-experience/gzoMonk.jpg" alt="GZO Experience">
+              <!-- <div class="cs-photo-placeholder"><span>Photo</span></div> -->
+            </div>
+          </div>
+
+          <div class="cs-photo-item cs-photo-item--square">
+            <div class="cs-photo-ratio cs-photo-item--square">
+              <img src="../../assets/images/projects/gzo-experience/gzoSakeRice.jpg" alt="GZO Experience">
+              <!-- <div class="cs-photo-placeholder"><span>Photo</span></div> -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Vertical video row -->
+        <div class="cs-video-row">
+
+          <div class="cs-video-item"  style="align-self: end;">
+            <div class="cs-video-ratio" style="padding-bottom: 125%;">
+                                <video src="../../assets/video/GreentempleWeb.mp4" playsinline preload="none" poster="../../assets/images/projects/gzo-experience/green01.jpg"></video> 
+                  
+<div class="cs-video-overlay">
+  <span class="cs-video-play-btn" aria-label="Play">▶</span>
+  <div class="cs-video-controls">
+    <button class="cs-vid-btn cs-vid-mute" aria-label="Mute">🔊</button>
+    <button class="cs-vid-btn cs-vid-fullscreen" aria-label="Fullscreen">⛶</button>
+  </div>
+</div>
+            </div>
+            <div class="cs-video-label">Instagram · Reel</div>
+          </div>
+
+          <div class="cs-video-item">
+            <div class="cs-video-ratio" style="padding-bottom: 125%;">
+                  <video src="../../assets/video/nambaNightLoopWeb.mp4" playsinline preload="none" poster="../../assets/images/projects/gzo-experience/nambaLoop01.jpg"></video> 
+<div class="cs-video-overlay">
+  <span class="cs-video-play-btn" aria-label="Play">▶</span>
+  <div class="cs-video-controls">
+    <button class="cs-vid-btn cs-vid-mute" aria-label="Mute">🔊</button>
+    <button class="cs-vid-btn cs-vid-fullscreen" aria-label="Fullscreen">⛶</button>
+  </div>
+</div>
+            </div>
+            <div class="cs-video-label">Instagram · Reel</div>
+          </div>
+
+          <div class="cs-video-item"  style="align-self: center;">
+            <div class="cs-video-ratio" style="padding-bottom: 125%;">
+                  <video src="../../assets/video/GzokieventrecapWeb.mp4" playsinline preload="none" poster="../../assets/images/projects/gzo-experience/event01.jpg"></video> 
+<div class="cs-video-overlay">
+  <span class="cs-video-play-btn" aria-label="Play">▶</span>
+  <div class="cs-video-controls">
+    <button class="cs-vid-btn cs-vid-mute" aria-label="Mute">🔊</button>
+    <button class="cs-vid-btn cs-vid-fullscreen" aria-label="Fullscreen">⛶</button>
+  </div>
+</div>
+              <!-- <div class="cs-video-placeholder">
+                <span class="cs-video-placeholder-icon">▶</span>
+                <span>Vertical video</span>
+              </div> -->
+            </div>
+            <div class="cs-video-label">Event Recap</div>
+          </div>
+
+          <div class="cs-video-item">
+            <div class="cs-video-ratio" style="padding-bottom: 125%;">
+                  <video src="../../assets/video/ZanekitahamaSlidesWeb.mp4" playsinline preload="none" poster="../../assets/images/projects/gzo-experience/kitahama01.jpg"></video> 
+<div class="cs-video-overlay">
+  <span class="cs-video-play-btn" aria-label="Play">▶</span>
+  <div class="cs-video-controls">
+    <button class="cs-vid-btn cs-vid-mute" aria-label="Mute">🔊</button>
+    <button class="cs-vid-btn cs-vid-fullscreen" aria-label="Fullscreen">⛶</button>
+  </div>
+</div>
+            </div>
+            <div class="cs-video-label">Instagram · Reel</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── WEB SECTION ─── -->
+      <section class="cs-web-section" aria-labelledby="gzo-web-heading">
+        <div class="cs-web-left">
+          <p class="cs-section-label">Web &amp; E-commerce</p>
+          <h2 id="gzo-web-heading" class="cs-intro-heading">
+            Designed<br>
+            &amp; <em>built</em>
+          </h2>
+          <p>The brand needed a platform that matched the ambition of the content — so we built it. The GZO Experience website and e-commerce platform was designed and developed in-house, from architecture through to launch and ongoing maintenance.</p>
+          <p>The build covers <strong>brand site, product store, and bilingual content</strong> — a full-stack creative responsibility that sits at the intersection of design, development, and cultural positioning.</p>
+          <div class="cs-web-capabilities">
+            <span class="cs-web-cap">UX &amp; visual design</span>
+            <span class="cs-web-cap">Front-end development</span>
+            <span class="cs-web-cap">E-commerce integration</span>
+            <span class="cs-web-cap">Bilingual (EN / JA) content</span>
+            <span class="cs-web-cap">Ongoing maintenance &amp; updates</span>
+          </div>
+          <a href="https://gzoexperience.com" target="_blank" rel="noopener" class="cs-web-link">Visit gzoexperience.com →</a>
+        </div>
+        <div class="cs-web-right">
+          <div class="cs-web-screen">
+            
+              <img src="../../assets/images/projects/gzo-experience/gzoWebSS.jpg" alt="GZO Experience website">
+           
+            <!-- <div class="cs-web-screen-placeholder">
+              <span>Website screenshot</span>
+            </div> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ── NEXT PROJECT ─── -->
+      <div class="cs-next">
+        <span class="cs-next-label">[ Next project ]</span>
+        <a href="../../index.html#work" class="cs-next-link">
+          <span class="cs-next-arrow">→</span>
+          <span class="cs-next-title">Back to work</span>
+        </a>
+      </div>
+
+    </div>
+
+
+
+    <div class="cs-vid-popup" id="cs-vid-popup">
+  <div class="cs-vid-popup-inner">
+    <button class="cs-vid-popup-close" id="cs-vid-popup-close">✕ Close</button>
+    <video id="cs-vid-popup-video" playsinline controls></video>
+  </div>
+</div>
+  </main>
+
+  <!-- ── FOOTER ─── -->
+  <footer>
+    <p><small>© <span id="year"></span> Get Goen — Osaka, Japan</small></p>
+    <span class="footer-goen" aria-label="Get Goen">get <span>goen</span> · 縁</span>
+  </footer>
+
+ <script>
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Popup setup — outside the loop, runs once
+  const popup = document.getElementById('cs-vid-popup');
+  const popupVideo = document.getElementById('cs-vid-popup-video');
+  const popupClose = document.getElementById('cs-vid-popup-close');
+
+  popupClose.addEventListener('click', () => {
+    popup.classList.remove('is-open');
+    popupVideo.pause();
+    popupVideo.src = '';
+  });
+
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      popup.classList.remove('is-open');
+      popupVideo.pause();
+      popupVideo.src = '';
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      popup.classList.remove('is-open');
+      popupVideo.pause();
+      popupVideo.src = '';
+    }
+  });
+
+  // Per-video setup — inside the loop
+  document.querySelectorAll('.cs-video-item').forEach(item => {
+    const video = item.querySelector('video');
+    const overlay = item.querySelector('.cs-video-overlay');
+    const muteBtn = item.querySelector('.cs-vid-mute');
+    const fsBtn = item.querySelector('.cs-vid-fullscreen');
+    if (!video || !overlay) return;
+
+    // Play/pause
+    overlay.addEventListener('click', (e) => {
+      if (e.target.closest('.cs-video-controls')) return;
+      if (video.paused) {
+        document.querySelectorAll('.cs-video-item video').forEach(v => {
+          if (v !== video) { v.pause(); v.closest('.cs-video-item').classList.remove('is-playing'); }
+        });
+        video.play();
+        item.classList.add('is-playing');
+      } else {
+        video.pause();
+        item.classList.remove('is-playing');
+      }
+    });
+
+    // Mute/unmute
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      muteBtn.textContent = video.muted ? '🔇' : '🔊';
+    });
+
+    // Fullscreen (popup)
+fsBtn.addEventListener('click', () => {
+  const src = video.currentSrc || video.src;
+  const time = video.currentTime;
+  video.pause();
+  item.classList.remove('is-playing');
+  popupVideo.src = src;
+  popupVideo.currentTime = time;
+  popup.classList.add('is-open');
+  popupVideo.play();
+});
+
+    video.addEventListener('ended', () => {
+      item.classList.remove('is-playing');
+    });
+  });
+</script>
+
+</body>
+</html>
